@@ -1,0 +1,16 @@
+<script>
+    var isWebPSupported;
+    (function () {
+        var WebP = new Image();
+        WebP.onload = WebP.onerror = function () {
+            isWebPSupported = WebP.height === 2;
+            <% jsList.map((js, index) => { %>
+            var name = isWebPSupported ? '<%= jsListWebP[index] %>' : '<%= js %>';
+            var s = document.createElement('script');
+            s.src = name;
+            document.body.appendChild(s);
+            <% }) %>
+        };
+        WebP.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';
+    })();
+</script>
