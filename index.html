@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <title>Using WebP in HTML5</title>
+</head>
+<body>
+<div id="react-root"></div>
+<script>
+    var isWebPSupported;
+    (function () {
+        var WebP = new Image();
+        WebP.onload = WebP.onerror = function () {
+            isWebPSupported = WebP.height === 2;
+            
+            var name = isWebPSupported ? 'main.f041d9036d33197bd734.js' : 'main.9f0e87ed2db271e1a42b.js';
+            var s = document.createElement('script');
+            s.src = name;
+            document.body.appendChild(s);
+            
+        };
+        WebP.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA';
+    })();
+</script>
+</body>
+</html>
